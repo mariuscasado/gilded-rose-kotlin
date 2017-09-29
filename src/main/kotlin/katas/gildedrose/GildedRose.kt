@@ -16,6 +16,6 @@ class GildedRose(internal var items: Array<Item>) {
         item.name.equals("Aged Brie") -> AgedBrie(item)
         item.name.equals("Backstage passes to a TAFKAL80ETC concert") -> BackstagePass(item)
         item.name.equals("Sulfuras, Hand of Ragnaros") -> Sulfuras(item)
-        else -> TemporaryItem(item)
+        else -> PerishableItem(item)
     }
 }
