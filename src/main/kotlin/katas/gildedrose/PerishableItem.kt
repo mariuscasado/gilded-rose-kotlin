@@ -13,4 +13,8 @@ open class PerishableItem(val item: Item) {
             item.quality--
         }
     }
+
+    protected fun increaseQuality() {
+        item.quality++
+    }
 }

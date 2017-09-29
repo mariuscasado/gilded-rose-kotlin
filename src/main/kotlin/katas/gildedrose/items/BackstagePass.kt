@@ -7,14 +7,14 @@ class BackstagePass(item: Item) : PerishableItem(item) {
 
     override fun update() {
         if (item.quality < 50) {
-            item.quality++
+            increaseQuality()
 
             if (item.sellIn < 11 && item.quality < 50) {
-                item.quality++
+                increaseQuality()
             }
 
             if (item.sellIn < 6 && item.quality < 50) {
-                item.quality++
+                increaseQuality()
             }
         }
 

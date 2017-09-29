@@ -7,13 +7,13 @@ class AgedBrie(item: Item) : PerishableItem(item) {
 
     override fun update() {
         if (item.quality < 50) {
-            item.quality++
+            increaseQuality()
         }
 
         item.sellIn--
 
         if (item.sellIn < 0 && item.quality < 50) {
-            item.quality++
+            increaseQuality()
         }
     }
 }
