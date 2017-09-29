@@ -1,8 +1,8 @@
 package katas.gildedrose
 
-class TemporaryItem(val item: Item) {
+open class TemporaryItem(val item: Item) {
 
-    fun update() {
+    open fun update() {
         if (item.name != "Aged Brie" && item.name != "Backstage passes to a TAFKAL80ETC concert") {
             if (item.quality > 0) {
                 if (item.name != "Sulfuras, Hand of Ragnaros") {
