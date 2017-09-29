@@ -5,9 +5,13 @@ class GildedRose(internal var items: Array<Item>) {
     fun updateQuality() {
         for (i in items.indices) {
             val item = items[i]
+            if(item.name === "Sulfuras, Hand of Ragnaros"){
+                continue;
+            }
+
+            decreaseSellIn(item)
 
             if (item.name === "Aged Brie") {
-                decreaseSellIn(item)
                 if (item.quality < 50) {
                     increaseQuality(item)
                     if (item.sellIn < 0) {
@@ -19,25 +23,20 @@ class GildedRose(internal var items: Array<Item>) {
                     increaseQuality(item)
                     if (item.sellIn < 11) {
                         increaseQuality(item)
-
                         if (item.sellIn < 6) {
                             increaseQuality(item)
                         }
                     }
                 }
-                decreaseSellIn(item)
                 if (item.sellIn < 0) {
                     item.quality = 0
                 }
-            } else if(item.name === "Sulfuras, Hand of Ragnaros"){
-
             } else {
                 if (item.quality > 0) {
                     decreaseQuality(item)
-                }
-                decreaseSellIn(item)
-                if (item.sellIn < 0 && item.quality > 0) {
-                    decreaseQuality(item)
+                    if (item.sellIn < 0) {
+                        decreaseQuality(item)
+                    }
                 }
             }
 
