@@ -2,6 +2,8 @@ package katas.gildedrose
 
 open class PerishableItem(val item: Item) {
 
+    val MAX_QUALITY = 50
+
     open fun update() {
         if (item.quality > 0) {
             item.quality--
@@ -15,6 +17,8 @@ open class PerishableItem(val item: Item) {
     }
 
     protected fun increaseQuality() {
-        item.quality++
+        if (item.quality < MAX_QUALITY) {
+            item.quality++
+        }
     }
 }
